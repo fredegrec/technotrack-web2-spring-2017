@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'core.apps.CoreConfig',
+    'post',
+    'chat',
+    'friendship',
 ]
 
 MIDDLEWARE = [
