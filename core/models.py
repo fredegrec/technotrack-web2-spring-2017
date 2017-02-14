@@ -13,8 +13,8 @@ class User(AbstractUser):
     
     
     class Meta:
-        verbose_name = u'пользователь'
-        verbose_name_plural = u'пользователи'
+        verbose_name = u'Пользователь'
+        verbose_name_plural = u'Пользователи'
         
         
         
