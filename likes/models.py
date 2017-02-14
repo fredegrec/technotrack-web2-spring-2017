@@ -3,12 +3,16 @@ from __future__ import unicode_literals
 
 from django.db import models
 from core.models import Authored, Dated
-from post.models import Post
-
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericForeignKey
 # Create your models here.
 class Like(Authored, Dated):
-    post = models.ForeignKey(Post)
-
+    content_type = models.ForeignKey(ContentType)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey()
+    
     class Meta:
         verbose_name = u'Лайк'
-        verbose_name_plural = u'Лайки' 
+        verbose_name_plural = u'Лайки'
+        
+
