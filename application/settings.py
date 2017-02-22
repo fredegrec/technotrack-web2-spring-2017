@@ -43,11 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'core.apps.CoreConfig',
-    'chat',
-    'friendship',
-    'likes',
-    'events',
-    'ugc'
+    'chat.apps.ChatConfig',
+    'friendship.apps.FriendshipConfig',
+    'likes.apps.LikesConfig',
+    'events.apps.EventsConfig',
+    'ugc.apps.UgcConfig'
 ]
 
 MIDDLEWARE = [

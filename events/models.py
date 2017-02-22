@@ -10,7 +10,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 class Event(Authored, Dated):
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey()
+    content_object = GenericForeignKey('content_type', 'object_id')
 
     class Meta:
         verbose_name = u'Событие'

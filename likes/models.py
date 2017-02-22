@@ -4,8 +4,9 @@ from __future__ import unicode_literals
 from django.db import models
 from core.models import Authored, Dated
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes.fields import GenericForeignKey
-# Create your models here.
+from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
+
+
 class Like(Authored, Dated):
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
@@ -14,5 +15,13 @@ class Like(Authored, Dated):
     class Meta:
         verbose_name = u'Лайк'
         verbose_name_plural = u'Лайки'
+        
+class Likeable(models.Model):
+    likes = GenericRelation(Like, content_type_field = 'content_type', object_id_field = 'object_id')
+    
+    class Meta:
+        abstract = True
+        
+        
         
 
