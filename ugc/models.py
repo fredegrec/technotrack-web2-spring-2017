@@ -13,7 +13,7 @@ class Comment(Authored, Dated, Likeable):
     text = models.CharField(max_length = 300, blank = False)
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey()
+    content_object = GenericForeignKey('content_type','object_id')
     class Meta:
         verbose_name = u'Комментарий'
         verbose_name_plural = u'Комментарии'
