@@ -13,8 +13,9 @@ class Like(Authored, Dated):
     content_object = GenericForeignKey()
     
     class Meta:
-        verbose_name = u'Лайк'
-        verbose_name_plural = u'Лайки'
+        verbose_name = 'Лайк'
+        verbose_name_plural = 'Лайки'
+        unique_together=(('author','content_type','object_id'),)
         
 class Likeable(models.Model):
     likes = GenericRelation(Like, content_type_field = 'content_type', object_id_field = 'object_id')

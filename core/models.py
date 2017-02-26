@@ -6,16 +6,10 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-class User(AbstractUser):
-    first_name = models.CharField(u'Имя', max_length = 30, blank = True)
-    last_name = models.CharField(u'Фамилия', max_length = 30, blank = True)
-    username = models.CharField(u'Логин', max_length = 20, blank = False, unique = True)
-    email = models.EmailField(u'e-mail', blank = False, unique = True)
-    
-    
+class User(AbstractUser):  
     class Meta:
-        verbose_name = u'Пользователь'
-        verbose_name_plural = u'Пользователи'
+        verbose_name = 'Пользователь'
+        verbose_name_plural = 'Пользователи'
         
         
         

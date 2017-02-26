@@ -10,13 +10,13 @@ from core.models import Authored, Titled, Dated
 class Chat(Authored, Titled, Dated):
     subscribers = models.ManyToManyField(AUTH_USER_MODEL, related_name='subscribers')
     class Meta:
-        verbose_name = u'Чат'
-        verbose_name_plural = u'Чаты'
+        verbose_name = 'Чат'
+        verbose_name_plural = 'Чаты'
 
 class Message(Authored, Dated):
     text = models.CharField(max_length = 300, blank = False)
     chat = models.ForeignKey(Chat, blank = False)
     class Meta:
-        verbose_name = u'Сообщение'
-        verbose_name_plural = u'Сообщения'
+        verbose_name = 'Сообщение'
+        verbose_name_plural = 'Сообщения'
     
