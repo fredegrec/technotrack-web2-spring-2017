@@ -97,6 +97,11 @@ DATABASES = {
         'USER': config.get('db', 'USER'),
         'PASSWORD': config.get('db', 'PASSWORD'),
         'HOST': 'localhost',
+        'OPTIONS': {
+            'init_command': 'SET character_set_connection=utf8,collation_connection=utf8_general_ci',
+            'charset': 'utf8',
+            'use_unicode': True,
+            },
     }
 }
 
