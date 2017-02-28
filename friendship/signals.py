@@ -13,7 +13,7 @@ def accept_friends_request(instance, *args, **kwargs):
         
         
 @receiver(post_save, sender=FriendShip)
-def friendship_created_event(instance, created = False, *args, **kwargs):
+def created_friendship_event(instance, created = False, *args, **kwargs):
     if created:
         Event.objects.create(author=instance.first,
                              content_object=instance, 
