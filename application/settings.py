@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'rest_framework',
+    'social_django',
     'core.apps.CoreConfig',
     'chat.apps.ChatConfig',
     'friendship.apps.FriendshipConfig',
@@ -51,6 +52,25 @@ INSTALLED_APPS = [
     'ugc.apps.UgcConfig',
     'awards.apps.AwardsConfig',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.vk.VKOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = config.get('vk', 'KEY')
+SOCIAL_AUTH_VK_OAUTH2_SECRET = config.get('vk', 'SECRET')
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email', ]
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

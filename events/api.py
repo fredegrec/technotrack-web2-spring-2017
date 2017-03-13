@@ -3,6 +3,8 @@ from rest_framework import serializers, permissions
 from .models import Event
 from core.api import UserSerializer
 from friendship.api import FriendShipSerializer
+from friendship.models import FriendShip
+from friendship.api import FriendShipSerializer
 from ugc.api import PostSerializer
 from ugc.models import Post
 
@@ -10,7 +12,7 @@ class ContentObjectRelatedField(serializers.RelatedField):
     def to_representation(self, value):
         if isinstance(value, Post):
             serializer = PostSerializer(value)
-        elif isistance(value, FriendShip):
+        elif isinstance(value, FriendShip):
             serializer=FriendShipSerializer(value)
         else:
             raise Exception("Unexpected type of object")

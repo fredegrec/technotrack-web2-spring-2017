@@ -21,7 +21,9 @@ class Likeable(models.Model):
     likes = GenericRelation(Like, content_type_field = 'content_type', object_id_field = 'object_id')
     
     class Meta:
-        abstract = True
+        abstract=True
+    
+
         
         
         
