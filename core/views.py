@@ -17,3 +17,6 @@ class UserViewSet(viewsets.ModelViewSet):
     
         
 router.register('users', UserViewSet)
+
+def home(request):
+    return render(request, 'home.html')

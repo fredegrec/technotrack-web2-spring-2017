@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %} Homepage {% endblock %}
+<body>
+{% block content %}
+     <a href="{% url 'social:begin' 'vk-oauth2' %}">Зарегистрироваться с помощью VK</a>
+{% endblock %}
+</body>
