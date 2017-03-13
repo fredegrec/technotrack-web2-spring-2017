@@ -10,15 +10,9 @@ def accept_friends_request(instance, *args, **kwargs):
     if instance.accepted:
         FriendShip.objects.create(first=instance.author,second=instance.recipient)
         FriendShip.objects.create(first=instance.recipient,second=instance.author)
+        instance.delete()
         
         
-@receiver(post_save, sender=FriendShip)
-def created_friendship_event(instance, created = False, *args, **kwargs):
-    if created:
-        Event.objects.create(author=instance.first,
-                             content_object=instance, 
-                             content='{0} и {1} стали друзьями.'.format(instance.first, instance.second)
-                             )
                      
 @receiver(post_delete, sender=FriendShip)
 def delete_friend(instance, *args, **kwargs):

@@ -28,6 +28,10 @@ class Commentable(models.Model):
         
 class Post(Authored, Titled, Dated, Likeable, Commentable, Eventable):
     text = models.TextField(max_length = 1000, blank = False)
+    
+    def get_author(self):
+        return self.author
+    
     class Meta:
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'

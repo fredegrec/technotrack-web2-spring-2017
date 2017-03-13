@@ -18,6 +18,10 @@ class Request(Authored):
 class FriendShip(Eventable):
     first = models.ForeignKey(AUTH_USER_MODEL, blank = False, related_name = 'first')
     second = models.ForeignKey(AUTH_USER_MODEL, blank = False, related_name = 'second')
+    
+    def get_author(self):
+        return self.first
+    
     class Meta:
         verbose_name = 'Друг'
         verbose_name_plural = 'Друзья'
