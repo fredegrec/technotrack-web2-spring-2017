@@ -23,9 +23,7 @@ class ChatViewSet(viewsets.ModelViewSet):
         chat.subscribers.add(self.request.user)
         chat.save()
         
-    #def perform_update(self, serializer):
-        
-           
+                   
 router.register('chats', ChatViewSet)
 
 class MessageViewSet(viewsets.ModelViewSet):

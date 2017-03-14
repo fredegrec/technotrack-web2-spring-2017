@@ -8,7 +8,7 @@ from core.models import Authored, Titled, Dated
 # Create your models here.
 
 class Chat(Authored, Titled, Dated):
-    subscribers = models.ManyToManyField(AUTH_USER_MODEL, related_name='inchat')
+    subscribers = models.ManyToManyField(AUTH_USER_MODEL, related_name='chats')
     class Meta:
         verbose_name = 'Чат'
         verbose_name_plural = 'Чаты'

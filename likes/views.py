@@ -3,12 +3,13 @@ from rest_framework import viewsets, permissions
 
 from .models import Like
 from .api import LikeSerializer
+from .permissions import OwnerOrReadOnly
 from application.api import router 
 # Create your views here.
 class LikeViewSet(viewsets.ModelViewSet):
     queryset = Like.objects.all()
     serializer_class = LikeSerializer
-    permission_classes = permissions.IsAuthenticated,
+    permission_classes = permissions.IsAuthenticated, OwnerOrReadOnly
     
     def get_queryset(self):
         qs = super(LikeViewSet, self).get_queryset()

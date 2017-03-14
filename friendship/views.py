@@ -3,13 +3,14 @@ from rest_framework import viewsets
 from rest_framework import permissions
 
 from .models import Request, FriendShip
-from .api import RequestSerializer, FriendShipSerializer
+from .api import RequestSerializer, FriendShipSerializer 
+from .permissions import RequestPermission
 from application.api import router 
 # Create your views here.
 class RequestViewSet(viewsets.ModelViewSet):
     queryset = Request.objects.all()
     serializer_class = RequestSerializer
-    permission_classes = permissions.IsAuthenticated,
+    permission_classes = permissions.IsAuthenticated, RequestPermission, 
     
     def get_queryset(self):
         qs = super(RequestViewSet, self).get_queryset()
